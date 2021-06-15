@@ -1,0 +1,40 @@
+#root{
+  text-align: center;
+}
+
+.navbar{
+  background-color: black;
+}
+.nav-item{
+  display: inline-block;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.nav-link{
+  text-decoration: none;
+  color: white;
+}
+
+ion-icon{
+  color: white;
+  font-size: 25px;
+}
+
+.itemCount{
+  display: inline-block;
+  border: 1px solid gray;
+}
+
+.onAdd{
+  height: 30px;
+
+}
+
+.card{
+  border:1px solid gray;
+  margin: 20px;  
+  padding: 5px;
+  width: 10rem;
+  display: inline-block;
+}
