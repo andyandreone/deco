@@ -1,4 +1,7 @@
 import React from 'react'
+import '../css/ItemCount.css'
+import Button from 'react-bootstrap/Button'
+
 
 export default function ItemCount({stock, initial}) {
 
@@ -19,12 +22,12 @@ export default function ItemCount({stock, initial}) {
     return (
         <div>
             <div className="itemCount">
-                <button onClick={restar}>-</button>
-                <p>{count}</p>
-                <button onClick={sumar}>+</button>
+                <Button variant="secondary" onClick={restar}>-</Button>
+                <p className="cantidadItemCount">{count}</p>
+                <Button variant="secondary" onClick={sumar}>+</Button>
             </div>
             <div>
-                <button className="onAdd" onClick={onAdd}>Agregar al carrito</button>
+                <Button variant="info" onClick={onAdd}>Agregar al carrito</Button>
                 <p>Cantidad Agregada {add}</p>
             </div>   
         </div>

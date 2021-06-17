@@ -2,9 +2,10 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import CartWidget from "./CartWidget";
 import "../App.css";
+
 const NavBar = () => {
   return (
-    <div className="navbar">
+    <div className="navbar justify-content-md-center">
       <Nav>
         <Nav.Item>
           <Nav.Link href="/home">Home</Nav.Link>
