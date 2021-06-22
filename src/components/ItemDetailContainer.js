@@ -7,38 +7,23 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-function ItemDetailContainer() {
-    
+function ItemDetailContainer(props) {
     const [producto, setProducto] = useState(null)
     useEffect(()=>{
+        fetch(`https://fakestoreapi.com/products/${props.id}`)
+        .then((res)=>res.json())
+        .then((res)=>setProducto(res))
+    },[]) 
 
-    const getItem = new Promise ((res,rej)=>{
-        const item ={
-            
-                title:"Cuadro 1",
-                precio:10,
-                descripcon:"esta es la descripcion",
-                imagen:"http://placehold.it/800x300"
-
-                }
-            setTimeout(
-                () => item!=null ? res(item):rej('Error'),
-                2000
-            )  
-    })
-    getItem.then(item=> setProducto(item))
-
-    },[])
-    
     return (
-        producto !=null ? 
+        producto!=null ? 
         <Container className="ItemDetailContainer">
             <Row>
                 <Col xs={8}>
-                    <ItemDetail title={producto.title} precio={producto.precio} descripcion="Esta es la descripcion"></ItemDetail>
+                    <ItemDetail title={producto.title} price={producto.price} image={producto.image} description={producto.description}></ItemDetail>
                 </Col>
                 <Col xs={4}>
-                    <ItemCount stock="8" initial="1"/>      
+                    <ItemCount stock="30" initial="1"/>      
                 </Col>
                 
             </Row>

@@ -1,14 +1,17 @@
 import React from "react";
-//import ItemList from './ItemList'
-import ItemDetailContainer from './ItemDetailContainer'
+import ItemList from './ItemList'
+
+//import ItemDetailContainer from './ItemDetailContainer'
 
 
 function ItemListContainer() {
   return (
     <div>
-      {/*<ItemList/>*/}
-      <ItemDetailContainer/>
+      <ItemList/>
+      {/*<ItemDetailContainer/>*/}
+    
     </div>
+      
   
   );
 }

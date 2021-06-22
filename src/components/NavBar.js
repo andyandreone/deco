@@ -1,22 +1,24 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import CartWidget from "./CartWidget";
-import "../App.css";
+import {Link,NavLink} from "react-router-dom";
+import "../css/NavBar.css";
+import Logo from '../img/logo.png'
 
 const NavBar = () => {
   return (
     <div className="navbar justify-content-md-center">
       <Nav>
         <Nav.Item>
-          <Nav.Link href="/home">Home</Nav.Link>
+          <NavLink activeClassName="actived" className="link" to="/"><img className="logo" src={Logo} alt="logo"></img></NavLink>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>Productos</Nav.Link>
+          <NavLink activeClassName="actived" className="link" to="/productos">Productos</NavLink>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>Contacto</Nav.Link>
+          <NavLink activeClassName="actived" className="link" to="/contacto">Contacto</NavLink>
         </Nav.Item>
-        <CartWidget />
+        <Link className="link" to="/cart"> <CartWidget/> </Link>
       </Nav>
     </div>
   );

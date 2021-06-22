@@ -1,50 +1,29 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Item from './Item'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import '../css/ItemList.css'
 
 
-function ItemList() {
-   const [productos, setProductos] = useState(null)
-    const promise = new Promise((resolve, reject)=>{
-        const items = [
-            {
-                id:1,
-                title:"Cuadro 1",
-                price:10,
-                image:"http://placehold.it/150x150"
-            },
-            {
-                id:2,
-                title:"Cuadro 2",
-                price:20,
-                image:"http://placehold.it/150x150"
-            },
-            {
-                id:3,
-                title:"Cuadro 3",
-                price:30,
-                image:"http://placehold.it/150x150"
-            }
-        ]
-        setTimeout(
-            () => items!=null ? resolve(items):reject('Error'),
-            1000
-        )
-    })
-        promise
-        .then(items => setProductos(items))
-        .catch(err => console.error(err))
+export default function ItemList() {
+    const [data, setData] = useState(null)
+    useEffect(()=>{
+        fetch('https://fakestoreapi.com/products')
+        .then((res)=>res.json())
+        .then((res)=>setData(res))
+    },[])
     
-
-    return(
-    <div>
-        { productos!=null?
-        productos.map((data,index)=>{
-                        return  <Item key={index} id={index}title={data.title}price={data.price} image={data.image}/>
-                    })
-         :<p>Cargando</p>       
-        }
-    </div>  
+    return (
+        <Container className="itemList">   
+            <Row>
+                          
+                    {data!==null ? 
+                    data.map((data,index)=>{
+                    return <Item key={index} id={index+1} image={data.image} title={data.title} price={data.price}/>})
+                    : "Cargando"
+                    }
+                
+            </Row>
+        </Container>
     )
 }
-
-export default ItemList

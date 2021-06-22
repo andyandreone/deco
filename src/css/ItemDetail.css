@@ -1,3 +1,6 @@
 .ItemDetail{
     margin: 60px;
 }
+img{
+    max-width: 150px;
+}

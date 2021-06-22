@@ -1,0 +1,39 @@
+.imageItem{
+    margin-top: 10px;
+    max-width: 100px;
+    height: 100px; 
+}
+
+.card{
+    width: 150px;
+    height: 340px;
+    margin: 20px 0;
+    text-align: center;
+    -webkit-box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+}
+
+.textButtonDetalle{
+    color:gray;
+    
+}
+.textButtonDetalle:hover{
+    text-decoration: none;
+    color:white;
+}
+
+img{
+    position: relative;
+    left: 23px;
+}
+
+.itemPrecio{
+    font-size: 20px;
+    color:blue;
+    font-weight: bold ;
+}
+
+.card-title{
+    font-size: 15px !important;
+}

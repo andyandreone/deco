@@ -1,17 +1,24 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ItemCount from './ItemCount';
+import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom'
+import '../css/Item.css'
+
 
 function Item(props) {
   return (
+  <Col>
     <Card className="card">
-      <Card.Img variant="top" src={props.image} />
+      <img className="imageItem" variant="top" src={props.image}/>
       <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text>$ {props.price}</Card.Text>
+        <Card.Title className="itemTitle">{props.title}</Card.Title>
+        <Card.Text className="itemPrecio">$ {props.price}</Card.Text>
       </Card.Body>
-      <ItemCount stock="8" initial="1"/>
+      {/*<ItemCount stock="8" initial="1"/>*/}
+      <Button variant="outline-secondary"><Link  className="textButtonDetalle" to={`/detalleProducto/${props.id}`}>Ver detalle</Link></Button>
     </Card>
+  </Col> 
   );
 }
 

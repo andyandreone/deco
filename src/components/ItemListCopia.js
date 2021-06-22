@@ -26,13 +26,14 @@ function ItemList() {
             }
         ]
         setTimeout(
-            () => items!=null ? resolve(items):reject(new Error('Null')),
+            () => items!=null ? resolve(items):reject('Error'),
             1000
         )
+    })
         promise
         .then(items => setProductos(items))
         .catch(err => console.error(err))
-    })
+    
 
     return(
     <div>
