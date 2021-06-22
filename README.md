@@ -1,4 +1,4 @@
-<h1>Cayetana Deco<h1>
+<h1>Cayetana Deco
 
 Hacemos marcos estilo francés antiguo con apliques 100% hechos a mano.
 Restauramos mubles antiguos
