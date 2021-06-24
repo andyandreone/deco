@@ -1,4 +1,5 @@
 import React, {useEffect,useState} from 'react'
+import { useParams } from 'react-router-dom'
 import '../css/ItemDetailContainer.css'
 import ItemDetail from './ItemDetail'
 import ItemCount from './ItemCount'
@@ -7,10 +8,11 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
+    const {id} = useParams();
     const [producto, setProducto] = useState(null)
-    useEffect(()=>{
-        fetch(`https://fakestoreapi.com/products/${props.id}`)
+    useEffect(()=>{    
+        fetch(`https://fakestoreapi.com/products/${id}`)
         .then((res)=>res.json())
         .then((res)=>setProducto(res))
     },[]) 
@@ -24,8 +26,7 @@ function ItemDetailContainer(props) {
                 </Col>
                 <Col xs={4}>
                     <ItemCount stock="30" initial="1"/>      
-                </Col>
-                
+                </Col>    
             </Row>
         </Container>
         : <p>cargando</p>

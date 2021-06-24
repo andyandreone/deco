@@ -2,37 +2,19 @@ import React from 'react'
 import NavBar from '../components/NavBar'
 import ItemListContainer from '../components/ItemListContainer'
 import ItemDetailContainer from '../components/ItemDetailContainer'
-import {BrowserRouter, Switch, Route, useParams} from 'react-router-dom'
+import SitioEnConstruccion from '../components/SitioEnConstruccion'
+import {BrowserRouter, Route} from 'react-router-dom'
 
 
-function AppRouter() {
-    function DetalleProducto() {
-        let { item } = useParams();
-        return <div>
-                 <ItemDetailContainer id={item}/>
-               </div>
-      }
-    
+function AppRouter() {  
     return (
         <BrowserRouter>
-              <NavBar/>
-            <Switch>
-                <Route exact path="/">
-                    <ItemListContainer/> 
-                </Route>
-                <Route path="/productos">
-                    <ItemListContainer/> 
-                </Route>
-                <Route path="/contacto">
-                   <div>SECCION CONTACTO --- EN CONSTRUCCION</div>
-                </Route>
-                <Route path="/cart">
-                    <div>SECCION CARRITO --- EN CONSTRUCCION</div>
-                </Route>
-                <Route path="/detalleProducto/:item">
-                    <DetalleProducto/>
-                </Route>
-            </Switch>
+                <NavBar/> 
+                <Route exact path="/" component={ItemListContainer}/>
+                <Route path="/productos" component={ItemListContainer}/>
+                <Route path="/contacto" component={SitioEnConstruccion}/>
+                <Route path="/cart" component={SitioEnConstruccion}/>
+                <Route path="/detalleProducto/:id"  component={ItemDetailContainer}/>      
         </BrowserRouter>
     )
 }
