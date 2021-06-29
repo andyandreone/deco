@@ -17,7 +17,7 @@ export function CartContext({children}) {
 
       const [data, setData] = useState([]);
       const updateData = (id,title, price, image,description, count) => {
-        const tmp = {
+        const producto = {
           id: id,
           titulo: title,
           precio: price,
@@ -25,9 +25,9 @@ export function CartContext({children}) {
           descripcion: description,
           cantidad: count,
         };
-        const ord = [...data];
-        ord.push(tmp);
-        return setData(ord);
+        const array = [...data];
+        array.push(producto);
+        return setData(array);
       };
 
     return (
