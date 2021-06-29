@@ -2,10 +2,12 @@
     margin-top: 10px;
     max-width: 100px;
     height: 100px; 
+    position: relative;
+    left: 73px;
 }
 
 .card{
-    width: 150px;
+    width: 250px;
     height: 340px;
     margin: 20px 0;
     text-align: center;
@@ -15,18 +17,14 @@
 }
 
 .textButtonDetalle{
-    color:gray;
-    
+    margin-bottom: 5px;  
 }
+
 .textButtonDetalle:hover{
     text-decoration: none;
     color:white;
 }
 
-img{
-    position: relative;
-    left: 23px;
-}
 
 .itemPrecio{
     font-size: 20px;

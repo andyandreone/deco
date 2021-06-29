@@ -1,16 +1,15 @@
 import './App.css';
-
 import AppRouter from './router/AppRouter';
-//import FetchData from './components/FetchData';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
+import {CartContext} from './components/CartContext';
 
 
 function App() {
   return (
     <div className="App">
-      <AppRouter/>
+        <CartContext>
+          <AppRouter/>
+        </CartContext>
     </div>
   );
 }

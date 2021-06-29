@@ -7,13 +7,16 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import {useDataUpdateContext} from './CartContext'
 
-function ItemDetailContainer() {
+function ItemDetailContainer(props) {
   const { id } = useParams();
   const [producto, setProducto] = useState(null);
   const [count, setCount] = useState(1);
   const [add, setAdd] = useState(0);
   const stock = 30;
+  const setData = useDataUpdateContext();
+ 
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -37,8 +40,9 @@ function ItemDetailContainer() {
     setAdd(count);
     return { add };
   }
-
+  
   return producto != null ? (
+ 
     <Container className="ItemDetailContainer">
       <Row>
         <Col xs={8}>
@@ -50,7 +54,7 @@ function ItemDetailContainer() {
           ></ItemDetail>
         </Col>
         <Col xs={4}>
-          <ItemCount count={count} sumarItem={sumar} restarItem={restar} />
+          <ItemCount count={count} sumarItem={sumar} restarItem={restar}/>
           <div>
             <Button variant="info" onClick={onAdd}>
               Agregar al carrito
@@ -59,7 +63,14 @@ function ItemDetailContainer() {
           </div>
 
           {add > 0 ? (
-            <Button variant="primary" className="buttonFinalizarCompra">
+            <Button variant="primary" className="buttonFinalizarCompra" onClick={()=>setData(
+              producto.id,
+              producto.title,
+              producto.price,
+              producto.image,
+              producto.description,
+              count
+            )}>
               <Link to="/cart">Finalizar Compra</Link>
             </Button>
           ) : (

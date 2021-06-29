@@ -1,0 +1,25 @@
+.boxCart{
+    border: 1px solid gray;
+    margin: 10px;
+}
+
+.imageCart{
+    height: 50px;
+    width: auto;
+    margin-top: 32px;
+}
+
+.titleCart{
+    margin-top:40px;
+}
+
+.totalCart{
+    color: blue;
+    font-weight: bold;
+}
+
+.cantCart{
+    color:green;
+    font-weight: bold;
+    
+}

@@ -20,14 +20,15 @@ function Item(props) {
           <Card.Text className="itemPrecio">$ {props.price}</Card.Text>
         </Card.Body>
         {/*<ItemCount stock="8" initial="1"/>*/}
-        <Button variant="outline-secondary">
+       
           <Link
             className="textButtonDetalle"
             to={`/detalleProducto/${props.id}`}
-          >
+          > <Button variant="outline-secondary">
             Ver detalle
+            </Button>
           </Link>
-        </Button>
+       
       </Card>
     </Col>
   );

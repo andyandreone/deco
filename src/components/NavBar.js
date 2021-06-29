@@ -1,14 +1,37 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav";
-import CartWidget from "./CartWidget";
-import { Link, NavLink } from "react-router-dom";
+import { Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "../css/NavBar.css";
 import Logo from "../img/logo.png";
 
 const NavBar = () => {
   return (
-    <div className="navbar justify-content-md-center">
-      <Nav>
+    <Navbar expand="lg">
+  <Navbar.Brand href="#home"><Link to="/"><img className="logo" src={Logo} alt="logo"></img></Link></Navbar.Brand>
+  <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+  <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+      <Nav.Link><Link to="/productos">Productos</Link></Nav.Link>
+      <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
+      <Nav.Link><Link to="/cart"><ion-icon className="cartIcon" name="cart"></ion-icon></Link></Nav.Link>
+      {/*
+       <NavDropdown title="Categorias" id="basic-nav-dropdown">
+        <NavDropdown.Item href="#action/3.1">Camperas</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.2">Remeras</NavDropdown.Item>
+        <NavDropdown.Item href="#action/3.3">Jeans</NavDropdown.Item>
+        <NavDropdown.Divider />
+        <NavDropdown.Item href="#action/3.4">Otros</NavDropdown.Item>
+      </NavDropdown>
+      */}  
+    </Nav>
+    <Form inline>
+      <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
+      <Button variant="light">Buscar</Button>
+    </Form>
+  </Navbar.Collapse>
+
+      {/*
+       <Nav>
         <Nav.Item>
           <NavLink activeClassName="actived" className="link" to="/">
             <img className="logo" src={Logo} alt="logo"></img>
@@ -29,7 +52,9 @@ const NavBar = () => {
           <CartWidget />{" "}
         </Link>
       </Nav>
-    </div>
+      */}
+     </Navbar>
+    
   );
 };
 
