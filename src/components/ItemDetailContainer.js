@@ -56,29 +56,32 @@ function ItemDetailContainer(props) {
         <Col xs={4}>
           <ItemCount count={count} sumarItem={sumar} restarItem={restar}/>
           <div>
-            <Button variant="info" onClick={onAdd}>
+            <Button variant="info" onClick={()=>{
+              onAdd();
+              setData(
+                producto.id,
+                producto.title,
+                producto.price,
+                producto.image,
+                producto.description,
+                count
+              );
+            }}>
               Agregar al carrito
             </Button>
-            <p>Cantidad Agregada {add}</p>
+           
           </div>
 
           {add > 0 ? (
-            <Button variant="primary" className="buttonFinalizarCompra" onClick={()=>setData(
-              producto.id,
-              producto.title,
-              producto.price,
-              producto.image,
-              producto.description,
-              count
-            )}>
-              <Link to="/cart">Finalizar Compra</Link>
-            </Button>
+            <Link to="/cart"><Button variant="primary" className="buttonIrAlCarrito">
+              Ir al Carrito
+            </Button></Link>
           ) : (
             <Button
               variant="primary disabled"
-              className="buttonFinalizarCompra"
+              className="buttonIrAlCarrito"
             >
-              Finalizar Compra
+              Ir al Carrito
             </Button>
           )}
         </Col>
