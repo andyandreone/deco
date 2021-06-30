@@ -16,6 +16,7 @@ export function useDataUpdateContext() {
 export function CartContext({children}) {
 
       const [data, setData] = useState([]);
+      const [index,setIndex] = useState([]);
       const updateData = (id,title, price, image,description, count) => {
         const producto = {
           id: id,
@@ -25,9 +26,21 @@ export function CartContext({children}) {
           descripcion: description,
           cantidad: count,
         };
+
+        const indexArray = [...index];
         const array = [...data];
-        array.push(producto);
-        return setData(array);
+        const indexProducto = indexArray.indexOf(producto.id)
+        if(indexProducto== "-1"){
+          indexArray.push(producto.id)
+          setIndex(indexArray);
+          array.push(producto);
+          return setData(array);
+        }else{
+          array[indexProducto].cantidad += producto.cantidad
+          return setData(array);
+
+        }          
+      
       };
 
     return (

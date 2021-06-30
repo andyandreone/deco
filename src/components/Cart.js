@@ -7,7 +7,6 @@ import Row from "react-bootstrap/Row";
 
 function Cart() {
     const data = useDataContext();
-    console.log(data[0])
     return (
         <Container>
             <Row>
