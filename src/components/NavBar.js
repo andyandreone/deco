@@ -1,8 +1,9 @@
 import React from "react";
-import { Nav, Navbar, Form, FormControl, Button} from "react-bootstrap";
+import { Nav, Navbar} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
 import Logo from "../img/logo.png";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -13,7 +14,7 @@ const NavBar = () => {
     <Nav className="mr-auto">
       <Nav.Link><Link to="/productos">Productos</Link></Nav.Link>
       <Nav.Link><Link to="/contacto">Contacto</Link></Nav.Link>
-      <Nav.Link><Link to="/cart"><ion-icon className="cartIcon" name="cart"></ion-icon></Link></Nav.Link>
+      <CartWidget/>
       {/*
        <NavDropdown title="Categorias" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Camperas</NavDropdown.Item>
@@ -24,10 +25,13 @@ const NavBar = () => {
       </NavDropdown>
       */}  
     </Nav>
-    <Form inline>
+    {/*
+     <Form inline>
       <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
       <Button variant="light">Buscar</Button>
     </Form>
+    */}
+   
   </Navbar.Collapse>
 
       {/*

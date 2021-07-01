@@ -1,6 +1,11 @@
 .boxCart{
     border: 1px solid gray;
     margin: 10px;
+    background-color: white;
+    -webkit-box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+    box-shadow: 3px 9px 5px 0px rgba(0,0,0,0.5);
+    border-radius: 5px;
 }
 
 .imageCart{
@@ -22,4 +27,27 @@
     color:green;
     font-weight: bold;
     
+}
+
+.trash>ion-icon{
+    font-size: 30px;
+    margin-top: 40px;
+}
+
+.trash>ion-icon:hover{
+    color:red
+}
+
+.cartDisplay{
+    background: white;
+    border: 1px solid gray;
+    margin:10px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.total{
+    font-size: 20px;
+    font-weight: bold;
+    color:gray;
 }

@@ -4,15 +4,17 @@ import '../css/CartContext.css'
 
 export const DataContext = React.createContext();
 export const UpdateDataContext = React.createContext();
+export const DeleteItemDataContext = React.createContext();
 
 export function useDataContext(){
     return useContext(DataContext)
 }
-
 export function useDataUpdateContext() {
     return useContext(UpdateDataContext);
   }
-
+export function useDeleteItemDataContext(){
+    return useContext(DeleteItemDataContext);
+}
 export function CartContext({children}) {
 
       const [data, setData] = useState([]);
@@ -38,15 +40,26 @@ export function CartContext({children}) {
         }else{
           array[indexProducto].cantidad += producto.cantidad
           return setData(array);
-
         }          
       
       };
 
+
+      const deleteData = (id)=>{
+       let array = [...data];
+       array.splice(index.indexOf(id),1)
+       index.splice(index.indexOf(id),1)
+        setIndex(index)
+        return setData(array)
+       
+      }
+
     return (
       <DataContext.Provider value={data}>
           <UpdateDataContext.Provider value={updateData}>
-          {children}
+            <DeleteItemDataContext.Provider value={deleteData}>
+                 {children}
+            </DeleteItemDataContext.Provider>
           </UpdateDataContext.Provider>   
       </DataContext.Provider>
     )

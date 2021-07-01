@@ -6,6 +6,7 @@
 }
 .navbar-nav>a>a:hover{
   text-decoration: none;
+  color:gray;
 }
 
 .navbar{
@@ -17,6 +18,6 @@
   height: 100px;
 }
 
-.cartIcon{
-  font-size: 30px;
+.navbar-nav>a>a>ion-icon{
+  font-size: 25px;
 }

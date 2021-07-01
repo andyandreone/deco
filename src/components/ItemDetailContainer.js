@@ -7,7 +7,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import {useDataUpdateContext} from './CartContext'
+import {useDataUpdateContext, useDataContext} from './CartContext'
+
 
 function ItemDetailContainer(props) {
   const { id } = useParams();
@@ -16,7 +17,18 @@ function ItemDetailContainer(props) {
   const [add, setAdd] = useState(0);
   const stock = 30;
   const setData = useDataUpdateContext();
- 
+  const data = useDataContext();
+  let indexArray =[]
+  let cantItemsAgregadosCart = 0;
+
+  if(data.length>0){
+    data.map((data)=>{
+      indexArray.push(data.id)
+  })
+  cantItemsAgregadosCart = data[indexArray.indexOf(parseInt(id))].cantidad;
+
+  }
+  
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
@@ -69,7 +81,8 @@ function ItemDetailContainer(props) {
             }}>
               Agregar al carrito
             </Button>
-           
+            <p className="itemsAgregados">{cantItemsAgregadosCart} Agregados</p>
+            
           </div>
 
           {add > 0 ? (
