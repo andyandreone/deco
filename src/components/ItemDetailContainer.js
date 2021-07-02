@@ -21,11 +21,15 @@ function ItemDetailContainer(props) {
   let indexArray =[]
   let cantItemsAgregadosCart = 0;
 
+  
   if(data.length>0){
     data.map((data)=>{
       indexArray.push(data.id)
   })
-  cantItemsAgregadosCart = data[indexArray.indexOf(parseInt(id))].cantidad;
+  if(indexArray.indexOf(parseInt(id))!=-1){
+    cantItemsAgregadosCart = data[indexArray.indexOf(parseInt(id))].cantidad;
+  }
+  
 
   }
   
