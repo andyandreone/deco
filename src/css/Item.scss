@@ -1,0 +1,62 @@
+.imageItem{
+    margin-top: 10px;
+    max-width: 100px;
+    height: 100px; 
+    position: relative;
+    left: 73px;
+}
+
+.card{
+    width: 250px;
+    height: 340px;
+    margin: 20px 0;
+    text-align: center;
+    -webkit-box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
+    box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
+   
+    ion-icon{
+        font-size: 0;
+        
+    }
+
+    &:hover{
+
+        -webkit-box-shadow: 4px 10px 6px 0px rgba(0,0,0,0.4);
+        -moz-box-shadow: 4px 10px 6px 0px rgba(0,0,0,0.4);
+        box-shadow: 4px 10px 6px 0px rgba(0,0,0,0.4);
+        background: rgb(220,220,220);
+
+
+        ion-icon{
+            font-size: 100px;
+            color: gray;
+            
+        }
+        
+    }
+}
+
+.textButtonDetalle{
+    margin-bottom: 5px;  
+}
+
+.textButtonDetalle:hover{
+    text-decoration: none;
+    color:white;
+}
+
+
+.itemPrecio{
+    font-size: 20px;
+    color:blue;
+    font-weight: bold ;
+}
+
+.card-title{
+    font-size: 15px !important;
+    color: gray;
+}
+
+
+

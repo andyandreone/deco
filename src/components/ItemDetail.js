@@ -7,6 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { useDataUpdateContext, useDataContext } from "./CartContext";
+import {getFireStore} from './firebase.js'
+import * as firebase from 'firebase';
 
 function ItemDetailContainer() {
   const { id } = useParams();
@@ -16,6 +18,7 @@ function ItemDetailContainer() {
   const stock = 30;
   const setData = useDataUpdateContext();
   const data = useDataContext();
+  
   let indexArray = [];
   let cantItemsAgregadosCart = 0;
 
@@ -23,16 +26,34 @@ function ItemDetailContainer() {
     data.map((data) => {
       indexArray.push(data.id);
     });
-    if (indexArray.indexOf(parseInt(id)) != -1) {
-      cantItemsAgregadosCart = data[indexArray.indexOf(parseInt(id))].cantidad;
+    if (indexArray.indexOf(id) != -1) {
+      cantItemsAgregadosCart = data[indexArray.indexOf(id)].cantidad;
     }
   }
 
-  useEffect(() => {
+  useEffect(()=>{ 
+    const db = getFireStore()
+    const productosCollection = db.collection("productos")
+    const product = productosCollection.doc(id)
+    product.get().then((doc)=>{
+        if(!doc.exists){
+            console.log("No results!");
+            return;
+        }
+        setProducto({id: doc.id, ...doc.data()});
+    }).catch((error)=>{
+        console.log("Error searching items", error);
+    })
+},[]);
+
+
+/*  useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((res) => setProducto(res));
   }, []);
+*/
+
 
   function restar() {
     if (count > 1) {

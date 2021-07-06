@@ -6,7 +6,7 @@ import "../css/ItemDetailContainer.css";
 function ItemDetailContainer() {
   return (
     <Container className="ItemDetailContainer">
-      <ItemDetail></ItemDetail>
+      <ItemDetail/>
     </Container>
   );
 }

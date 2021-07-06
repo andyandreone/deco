@@ -3,11 +3,12 @@ import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
-import "../css/Item.css";
+import "../css/Item.scss";
 
 function Item(props) {
   return (
     <Col>
+      <Link to={`/detalleProducto/${props.id}`} style={{ textDecoration: 'none' }}>
       <Card className="card">
         <img
           className="imageItem"
@@ -18,14 +19,14 @@ function Item(props) {
         <Card.Body>
           <Card.Title className="itemTitle">{props.title}</Card.Title>
           <Card.Text className="itemPrecio">$ {props.price}</Card.Text>
+          <ion-icon className="add-outline" name="add-outline"></ion-icon>
         </Card.Body>
-        {/*<ItemCount stock="8" initial="1"/>*/}
+        
+        
 
-        <Link className="textButtonDetalle" to={`/detalleProducto/${props.id}`}>
-          {" "}
-          <Button variant="outline-secondary">Ver detalle</Button>
-        </Link>
+      
       </Card>
+      </Link>
     </Col>
   );
 }
