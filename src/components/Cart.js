@@ -4,6 +4,7 @@ import "../css/Cart.css";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDeleteItemDataContext } from "./CartContext";
 import { Link } from "react-router-dom";
+import DataBuyer from './DataBuyer'
 
 function Cart() {
   const data = useDataContext();
@@ -17,10 +18,10 @@ function Cart() {
   return (
     <Container>
       <Row className="cartDisplay">
-        <Col xs={4} className="total">
+        <Col md={4} className="total">
           TOTAL: ${total}
         </Col>
-        <Col xs={{ span: 4, offset: 4 }}>
+        <Col md={{ span: 4, offset: 4 }}>
           <Link to="/productos">
             <Button variant="outline-secondary">Seguir comprando</Button>
           </Link>
@@ -28,6 +29,10 @@ function Cart() {
       </Row>
 
       <Row>
+        <Col md="4">
+          <DataBuyer/>
+        </Col>
+        <Col md="8">
         {data.length > 0 ? (
           data.map((data, index) => {
             return (
@@ -36,10 +41,10 @@ function Cart() {
                   <Col xs={2}>
                     <img className="imageCart" src={data.imagen} alt="imagen" />
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={4}>
                     <p className="titleCart">{data.titulo}</p>
                   </Col>
-                  <Col xs={3}>
+                  <Col xs={5}>
                     <p className="cantCart">
                       Cantidad agregada: {data.cantidad}
                     </p>
@@ -61,11 +66,13 @@ function Cart() {
                   </Col>
                 </Row>
               </Col>
+              
             );
           })
         ) : (
           <p>No hay productos en el carrito</p>
         )}
+        </Col>
       </Row>
     </Container>
   );

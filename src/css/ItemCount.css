@@ -5,3 +5,7 @@
 .cantidadItemCount{
     padding-top: 15px;
 }
+
+.stockDisponible{
+  color:green;
+}

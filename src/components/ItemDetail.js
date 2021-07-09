@@ -15,7 +15,6 @@ function ItemDetailContainer() {
   const [producto, setProducto] = useState(null);
   const [count, setCount] = useState(1);
   const [add, setAdd] = useState(0);
-  const stock = 30;
   const setData = useDataUpdateContext();
   const data = useDataContext();
   
@@ -62,7 +61,7 @@ function ItemDetailContainer() {
   }
 
   function sumar() {
-    if (count < stock) {
+    if (count < producto.stock) {
       setCount(parseInt(count) + 1);
     }
   }
@@ -84,7 +83,7 @@ function ItemDetailContainer() {
           </div>
         </Col>
         <Col xs={4}>
-          <ItemCount count={count} sumarItem={sumar} restarItem={restar} />
+          <ItemCount count={count} sumarItem={sumar} restarItem={restar} stock={producto.stock}/>
           <div>
             <Button
               variant="info"

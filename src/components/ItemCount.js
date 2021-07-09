@@ -12,6 +12,8 @@ export default function ItemCount(props) {
       <Button variant="secondary" onClick={props.sumarItem}>
         +
       </Button>
+      <p className="stockDisponible">{props.stock} Disponibles</p>
     </div>
+    
   );
 }

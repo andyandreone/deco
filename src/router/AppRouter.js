@@ -4,7 +4,8 @@ import ItemListContainer from "../components/ItemListContainer";
 import ItemDetailContainer from "../components/ItemDetailContainer";
 import SitioEnConstruccion from "../components/SitioEnConstruccion";
 import { BrowserRouter, Route } from "react-router-dom";
-import Cart from '../components/Cart'
+import Cart from '../components/Cart';
+import Orden from '../components/Orden';
 
 
 
@@ -15,6 +16,7 @@ function AppRouter() {
       <Route exact path="/" component={ItemListContainer} />
       <Route path="/productos" component={ItemListContainer} />
       <Route path="/contacto" component={SitioEnConstruccion} />
+      <Route path="/orden" component={Orden} />
       <Route path="/cart">
         <Cart/>
       </Route>
