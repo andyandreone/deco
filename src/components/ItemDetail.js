@@ -77,9 +77,9 @@ function ItemDetailContainer() {
         <Col xs={8}>
           <div className="ItemDetail">
             <img src={producto.image} alt="imageDetail"></img>
-            <h5>{producto.title}</h5>
+            <h5 className="itemDetailTitle">{producto.title}</h5>
             <p>{producto.description}</p>
-            <p>$ {producto.price}</p>
+            <p className="itemDetailPrice">$ {producto.price}</p>
           </div>
         </Col>
         <Col xs={4}>
@@ -119,7 +119,7 @@ function ItemDetailContainer() {
       </Row>
     </Container>
   ) : (
-    <p>cargando</p>
+    <div class="loader" id="loader">Loading...</div>
   );
 }
 

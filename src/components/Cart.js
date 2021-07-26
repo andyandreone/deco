@@ -4,7 +4,7 @@ import "../css/Cart.css";
 import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDeleteItemDataContext } from "./CartContext";
 import { Link } from "react-router-dom";
-import DataBuyer from './DataBuyer'
+import DataBuyer from "./DataBuyer";
 
 function Cart() {
   const data = useDataContext();
@@ -29,49 +29,50 @@ function Cart() {
       </Row>
 
       <Row>
-        <Col md="4">
-          <DataBuyer/>
-        </Col>
+        <Col md="4">{data.length > 0 ? <DataBuyer /> : ""}</Col>
         <Col md="8">
-        {data.length > 0 ? (
-          data.map((data, index) => {
-            return (
-              <Col xs={12} key={index} className="boxCart">
-                <Row>
-                  <Col xs={2}>
-                    <img className="imageCart" src={data.imagen} alt="imagen" />
-                  </Col>
-                  <Col xs={4}>
-                    <p className="titleCart">{data.titulo}</p>
-                  </Col>
-                  <Col xs={5}>
-                    <p className="cantCart">
-                      Cantidad agregada: {data.cantidad}
-                    </p>
+          {data.length > 0 ? (
+            data.map((data, index) => {
+              return (
+                <Col xs={12} key={index} className="boxCart">
+                  <Row>
+                    <Col xs={2}>
+                      <img
+                        className="imageCart"
+                        src={data.imagen}
+                        alt="imagen"
+                      />
+                    </Col>
+                    <Col xs={4}>
+                      <p className="titleCart">{data.titulo}</p>
+                    </Col>
+                    <Col xs={5}>
+                      <p className="cantCart">
+                        Cantidad agregada: {data.cantidad}
+                      </p>
 
-                    <p className="priceCart">
-                      Precio unitario: $ {data.precio}
-                    </p>
-                    <p className="totalCart">
-                      Subtotal Item: $ {data.precio * data.cantidad}
-                    </p>
-                  </Col>
-                  <Col className="trash" xs={1}>
-                    <ion-icon
-                      name="trash"
-                      onClick={() => {
-                        deleteData(data.id);
-                      }}
-                    ></ion-icon>
-                  </Col>
-                </Row>
-              </Col>
-              
-            );
-          })
-        ) : (
-          <p>No hay productos en el carrito</p>
-        )}
+                      <p className="priceCart">
+                        Precio unitario: $ {data.precio}
+                      </p>
+                      <p className="totalCart">
+                        Subtotal Item: $ {data.precio * data.cantidad}
+                      </p>
+                    </Col>
+                    <Col className="trash" xs={1}>
+                      <ion-icon
+                        name="trash"
+                        onClick={() => {
+                          deleteData(data.id);
+                        }}
+                      ></ion-icon>
+                    </Col>
+                  </Row>
+                </Col>
+              );
+            })
+          ) : (
+            <p>No hay productos en el carrito</p>
+          )}
         </Col>
       </Row>
     </Container>

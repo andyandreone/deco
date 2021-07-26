@@ -21,3 +21,16 @@
 .navbar-nav>a>a>ion-icon{
   font-size: 25px;
 }
+
+#basic-nav-dropdown{
+  color:white;
+}
+
+.dropdown-item>a{
+  color: rgb(41, 38, 38);
+}
+
+.dropdown-item>a:hover{
+  color: rgb(41, 38, 38);
+  text-decoration: none;
+}

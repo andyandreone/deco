@@ -5,9 +5,10 @@ import "../css/Orden.scss";
 
 function Orden(props) {
   const [detalleCompra, setDetalleCompra] = useState(null);
-  let total = 0;
-  let totalCompra = 0;
+  let total=0;
 
+
+  
   useEffect(() => {
     const db = getFireStore();
     const ordersCollection = db.collection("orders");
@@ -19,12 +20,22 @@ function Orden(props) {
           console.log("No results!");
           return;
         }
-        setDetalleCompra({ id: doc.id, ...doc.data() });
+        setDetalleCompra({ id: doc.id, ...doc.data() })
+        
+      
+    
+        
+        /*
+        for (const product of doc.data.items) {
+          totalCalculo+= product.precio*product.cantidad
+        }
+          setTotal(totalCalculo)*/
       })
       .catch((error) => {
         console.log("Error searching items", error);
-      });
+      })
   }, []);
+ 
 
   if (detalleCompra !== null) {
     return (
@@ -33,15 +44,22 @@ function Orden(props) {
         <p>Nombre: {detalleCompra.buyers.nombre}</p>
         <p>Correo: {detalleCompra.buyers.correo}</p>
         <p>Telefono: {detalleCompra.buyers.telefono}</p>
+       
         {detalleCompra.items.map((producto, i) => {
+          total+=(producto.precio*producto.cantidad)
+        
+         
+
           return (
             <ul key={i}>
               <li>{producto.titulo}</li>
-              <li>{producto.descripcion}</li>
               <li>{producto.cantidad}</li>
+              <li>$ {producto.precio*producto.cantidad}</li>
             </ul>
           );
+        
         })}
+         <p>Total: {total}</p>
       </div>
     );
   } else {

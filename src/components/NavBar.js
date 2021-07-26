@@ -1,5 +1,5 @@
 import React from "react";
-import { Nav, Navbar } from "react-bootstrap";
+import { Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../css/NavBar.css";
 import Logo from "../img/logo.png";
@@ -18,20 +18,13 @@ const NavBar = () => {
         <Nav className="mr-auto">
           <Nav.Link>
             <Link to="/productos">Productos</Link>
-          </Nav.Link>
-          <Nav.Link>
-            <Link to="/contacto">Contacto</Link>
-          </Nav.Link>
-          <CartWidget />
-          {/*
+          </Nav.Link>         
+         
        <NavDropdown title="Categorias" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#action/3.1">Camperas</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2">Remeras</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3">Jeans</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4">Otros</NavDropdown.Item>
+        <NavDropdown.Item><Link to="/categoria/espejos">Espejos</Link> </NavDropdown.Item>
+        <NavDropdown.Item><Link to="/categoria/cuadros">Cuadros</Link> </NavDropdown.Item>
       </NavDropdown>
-      */}
+      <CartWidget />
         </Nav>
         {/*
      <Form inline>

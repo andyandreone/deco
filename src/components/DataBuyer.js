@@ -9,15 +9,34 @@ import Orden from "./Orden";
 
 function DataBuyer() {
   const [email, setEmail] = useState("");
+  const [emailConfirm, setEmailConfirm] = useState("");
+  const [emailValidate, setEmailValidate] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [orderId, setOrderId] = useState(null);
-  const [mostrar, setMostrar] = useState("false");
+ 
 
   const data = useDataContext();
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
+    if(emailConfirm == e.target.value){
+      setEmailValidate(true)
+    }
+    if(emailConfirm != e.target.value){
+      setEmailValidate(false)
+    }
+  }
+  
+
+  function handleChangeEmailConfirm(e) {
+    setEmailConfirm(e.target.value)
+    if(email == e.target.value){
+      setEmailValidate(true)
+    }
+    if(email != e.target.value){
+      setEmailValidate(false)
+    }
   }
 
   function handleChangeName(e) {
@@ -55,9 +74,18 @@ function DataBuyer() {
         <Col>
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="email"
+           
             placeholder="name@example.com"
             onChange={handleChangeEmail}
+          />
+        </Col>
+
+        <Col>
+          <Form.Label>Confirmar Email</Form.Label>
+          <Form.Control
+            
+            placeholder="name@example.com"
+            onChange={handleChangeEmailConfirm}
           />
         </Col>
 
@@ -81,7 +109,7 @@ function DataBuyer() {
         <Col>
           <Link>
             <Button
-              disabled={!(email !== "" && name !== "" && phone !== "")}
+              disabled={!(emailValidate == true && name !== "" && phone !== "")}
               variant="outline-primary"
               className="buttonfinalizarCompra"
               onClick={addDataFirebase}

@@ -1,9 +1,7 @@
 .ItemDetail {
   margin: 60px;
 }
-img {
-  max-width: 150px;
-}
+
 
 .buttonIrAlCarrito > a {
   text-decoration: none;
@@ -12,4 +10,82 @@ img {
 
 .buttonIrAlCarrito {
   margin-top: 20px;
+}
+
+.itemDetailTitle{
+  margin-top: 10px;
+}
+
+.itemDetailPrice{
+  font-size: 30px;
+  color:blue;
+  font-weight: bold;
+}
+
+
+
+.loader {
+  font-size: 20px;
+  margin: 100px auto;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+}
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #010101, 2em -2em 0 0em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 0em #010101;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #010101, 2em -2em 0 0.2em #010101, 3em 0em 0 0em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 0em #010101, 3em 0em 0 0.2em #010101, 2em 2em 0 0em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 0em #010101, 2em 2em 0 0.2em #010101, 0em 3em 0 0em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 0em #010101, 0em 3em 0 0.2em #010101, -2em 2em 0 0em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 0em #010101, -2em 2em 0 0.2em #010101, -3em 0em 0 0em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 0em #010101, -3em 0em 0 0.2em #010101, -2em -2em 0 0em #010101;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 0em #010101, -3em 0em 0 0em #010101, -2em -2em 0 0.2em #010101;
+  }
+}
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0em -3em 0em 0.2em #010101, 2em -2em 0 0em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 0em #010101;
+  }
+  12.5% {
+    box-shadow: 0em -3em 0em 0em #010101, 2em -2em 0 0.2em #010101, 3em 0em 0 0em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  25% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 0em #010101, 3em 0em 0 0.2em #010101, 2em 2em 0 0em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  37.5% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 0em #010101, 2em 2em 0 0.2em #010101, 0em 3em 0 0em #010101, -2em 2em 0 -0.5em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  50% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 0em #010101, 0em 3em 0 0.2em #010101, -2em 2em 0 0em #010101, -3em 0em 0 -0.5em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  62.5% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 0em #010101, -2em 2em 0 0.2em #010101, -3em 0em 0 0em #010101, -2em -2em 0 -0.5em #010101;
+  }
+  75% {
+    box-shadow: 0em -3em 0em -0.5em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 0em #010101, -3em 0em 0 0.2em #010101, -2em -2em 0 0em #010101;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0em 0em #010101, 2em -2em 0 -0.5em #010101, 3em 0em 0 -0.5em #010101, 2em 2em 0 -0.5em #010101, 0em 3em 0 -0.5em #010101, -2em 2em 0 0em #010101, -3em 0em 0 0em #010101, -2em -2em 0 0.2em #010101;
+  }
 }
