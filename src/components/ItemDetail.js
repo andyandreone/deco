@@ -7,8 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import { useDataUpdateContext, useDataContext } from "./CartContext";
-import {getFireStore} from './firebase.js'
-import * as firebase from 'firebase';
+import { getFireStore } from "./firebase.js";
+import * as firebase from "firebase";
 
 function ItemDetailContainer() {
   const { id } = useParams();
@@ -17,7 +17,7 @@ function ItemDetailContainer() {
   const [add, setAdd] = useState(0);
   const setData = useDataUpdateContext();
   const data = useDataContext();
-  
+
   let indexArray = [];
   let cantItemsAgregadosCart = 0;
 
@@ -30,29 +30,30 @@ function ItemDetailContainer() {
     }
   }
 
-  useEffect(()=>{ 
-    const db = getFireStore()
-    const productosCollection = db.collection("productos")
-    const product = productosCollection.doc(id)
-    product.get().then((doc)=>{
-        if(!doc.exists){
-            console.log("No results!");
-            return;
+  useEffect(() => {
+    const db = getFireStore();
+    const productosCollection = db.collection("productos");
+    const product = productosCollection.doc(id);
+    product
+      .get()
+      .then((doc) => {
+        if (!doc.exists) {
+          console.log("No results!");
+          return;
         }
-        setProducto({id: doc.id, ...doc.data()});
-    }).catch((error)=>{
+        setProducto({ id: doc.id, ...doc.data() });
+      })
+      .catch((error) => {
         console.log("Error searching items", error);
-    })
-},[]);
+      });
+  }, []);
 
-
-/*  useEffect(() => {
+  /*  useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
       .then((res) => setProducto(res));
   }, []);
 */
-
 
   function restar() {
     if (count > 1) {
@@ -83,7 +84,12 @@ function ItemDetailContainer() {
           </div>
         </Col>
         <Col xs={4}>
-          <ItemCount count={count} sumarItem={sumar} restarItem={restar} stock={producto.stock}/>
+          <ItemCount
+            count={count}
+            sumarItem={sumar}
+            restarItem={restar}
+            stock={producto.stock}
+          />
           <div>
             <Button
               variant="info"
@@ -101,7 +107,7 @@ function ItemDetailContainer() {
             >
               Agregar al carrito
             </Button>
-            <p className="itemsAgregados">{cantItemsAgregadosCart} Agregados</p>
+            {cantItemsAgregadosCart>0 ? <p className="itemsAgregados">{cantItemsAgregadosCart} Agregados</p> : ""}
           </div>
 
           {add > 0 ? (
@@ -119,7 +125,9 @@ function ItemDetailContainer() {
       </Row>
     </Container>
   ) : (
-    <div class="loader" id="loader">Loading...</div>
+    <div class="loader" id="loader">
+      Loading...
+    </div>
   );
 }
 

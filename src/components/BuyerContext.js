@@ -4,33 +4,30 @@ export const DataBuyerContext = React.createContext();
 export const UpdateDataBuyerContext = React.createContext();
 
 export function useBuyerContext() {
-    return useContext(DataBuyerContext);
-  }
+  return useContext(DataBuyerContext);
+}
 
 export function useUpdateDataBuyerContext() {
-    return useContext(UpdateDataBuyerContext);
-  }  
+  return useContext(UpdateDataBuyerContext);
+}
 
-export function BuyerContext({children}) {
-    const [data, setData] = useState([]);
+export function BuyerContext({ children }) {
+  const [data, setData] = useState([]);
 
-const updateData = (email, name, phone) =>{
+  const updateData = (email, name, phone) => {
     const buyer = {
-        email: email,
-        name: name,
-        phone: phone,
-    }
+      email: email,
+      name: name,
+      phone: phone,
+    };
     setData(buyer);
+  };
 
+  return (
+    <BuyerContext.Provider value={data}>
+      <UpdateDataBuyerContext.Provider value={updateData}>
+        {children}
+      </UpdateDataBuyerContext.Provider>
+    </BuyerContext.Provider>
+  );
 }
-
-    return (
-        <BuyerContext.Provider value={data}>
-            <UpdateDataBuyerContext.Provider value={updateData}>
-                     {children}
-            </UpdateDataBuyerContext.Provider>
-        </BuyerContext.Provider>
-    )
-}
-
-

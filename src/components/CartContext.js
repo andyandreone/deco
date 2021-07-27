@@ -17,7 +17,7 @@ export function useDeleteItemDataContext() {
 export function CartContext({ children }) {
   const [data, setData] = useState([]);
   const [index, setIndex] = useState([]);
-  
+
   const updateData = (id, title, price, image, description, count) => {
     const producto = {
       id: id,

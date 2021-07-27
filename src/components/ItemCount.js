@@ -14,6 +14,5 @@ export default function ItemCount(props) {
       </Button>
       <p className="stockDisponible">{props.stock} Disponibles</p>
     </div>
-    
   );
 }

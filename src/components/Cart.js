@@ -71,7 +71,7 @@ function Cart() {
               );
             })
           ) : (
-            <p>No hay productos en el carrito</p>
+            <p className="noProducts">No hay productos en el carrito</p>
           )}
         </Col>
       </Row>

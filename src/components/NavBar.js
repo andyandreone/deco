@@ -18,45 +18,18 @@ const NavBar = () => {
         <Nav className="mr-auto">
           <Nav.Link>
             <Link to="/productos">Productos</Link>
-          </Nav.Link>         
-         
-       <NavDropdown title="Categorias" id="basic-nav-dropdown">
-        <NavDropdown.Item><Link to="/categoria/espejos">Espejos</Link> </NavDropdown.Item>
-        <NavDropdown.Item><Link to="/categoria/cuadros">Cuadros</Link> </NavDropdown.Item>
-      </NavDropdown>
-      <CartWidget />
+          </Nav.Link>
+          <NavDropdown title="Categorias" id="basic-nav-dropdown">
+            <NavDropdown.Item>
+              <Link to="/categoria/espejos">Espejos</Link>{" "}
+            </NavDropdown.Item>
+            <NavDropdown.Item>
+              <Link to="/categoria/cuadros">Cuadros</Link>{" "}
+            </NavDropdown.Item>
+          </NavDropdown>
+          <CartWidget />
         </Nav>
-        {/*
-     <Form inline>
-      <FormControl type="text" placeholder="Buscar" className="mr-sm-2" />
-      <Button variant="light">Buscar</Button>
-    </Form>
-    */}
       </Navbar.Collapse>
-
-      {/*
-       <Nav>
-        <Nav.Item>
-          <NavLink activeClassName="actived" className="link" to="/">
-            <img className="logo" src={Logo} alt="logo"></img>
-          </NavLink>
-        </Nav.Item>
-        <Nav.Item>
-          <NavLink activeClassName="actived" className="link" to="/productos">
-            Productos
-          </NavLink>
-        </Nav.Item>
-        <Nav.Item>
-          <NavLink activeClassName="actived" className="link" to="/contacto">
-            Contacto
-          </NavLink>
-        </Nav.Item>
-        <Link className="link" to="/cart">
-          {" "}
-          <CartWidget />{" "}
-        </Link>
-      </Nav>
-      */}
     </Navbar>
   );
 };

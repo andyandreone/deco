@@ -5,10 +5,8 @@ import "../css/Orden.scss";
 
 function Orden(props) {
   const [detalleCompra, setDetalleCompra] = useState(null);
-  let total=0;
+  let total = 0;
 
-
-  
   useEffect(() => {
     const db = getFireStore();
     const ordersCollection = db.collection("orders");
@@ -20,50 +18,40 @@ function Orden(props) {
           console.log("No results!");
           return;
         }
-        setDetalleCompra({ id: doc.id, ...doc.data() })
-        
-      
-    
-        
-        /*
-        for (const product of doc.data.items) {
-          totalCalculo+= product.precio*product.cantidad
-        }
-          setTotal(totalCalculo)*/
+        setDetalleCompra({ id: doc.id, ...doc.data() });
       })
       .catch((error) => {
         console.log("Error searching items", error);
-      })
+      });
   }, []);
- 
 
   if (detalleCompra !== null) {
     return (
       <div className="detalleCompra">
-        <p>Codigo de compra: {props.id}</p>
-        <p>Nombre: {detalleCompra.buyers.nombre}</p>
-        <p>Correo: {detalleCompra.buyers.correo}</p>
-        <p>Telefono: {detalleCompra.buyers.telefono}</p>
-       
+        <p className="reciboCompra">DETALLE COMPRA</p>
+        <p className="codigoCompra">{props.id}</p>
+        <p>{detalleCompra.buyers.nombre}</p>
+        <p>{detalleCompra.buyers.correo}</p>
+        <p>{detalleCompra.buyers.telefono}</p>
+
         {detalleCompra.items.map((producto, i) => {
-          total+=(producto.precio*producto.cantidad)
-        
-         
+          total += producto.precio * producto.cantidad;
 
           return (
-            <ul key={i}>
+            <ul className="listaOrden" key={i}>
               <li>{producto.titulo}</li>
-              <li>{producto.cantidad}</li>
-              <li>$ {producto.precio*producto.cantidad}</li>
+              <li className="cantidadOrden">{producto.cantidad}</li>
+              <li className="subtotalOrden">$ {producto.precio * producto.cantidad}</li>
             </ul>
           );
-        
         })}
-         <p>Total: {total}</p>
+        <p className="totalOrden">Total: ${total}</p>
       </div>
     );
   } else {
-    return <p>Cargando</p>;
+    return <div class="loader" id="loader">
+    Loading...
+  </div>;
   }
 }
 

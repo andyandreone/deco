@@ -6,4 +6,35 @@
     -webkit-box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
     -moz-box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
     box-shadow: 3px 8px 4px 0px rgba(0,0,0,0.4);
+
+    .reciboCompra{
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .codigoCompra{
+      font-weight: bolder;
+      font-size: 13px;
+    }
+
+    .listaOrden{
+        border-top:  0.5px solid gray;
+        margin: 10px;
+    }
+
+    .cantidadOrden{
+        color:green;
+        font-weight: bold;
+    }
+
+    .subtotalOrden{
+        color:blue;
+        font-weight: bold;
+    }
+    .totalOrden{
+        color: rgb(41, 38, 38);
+        font-size: 20px;
+        font-weight: bold;
+        padding: 10px;
+    }
 }

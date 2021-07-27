@@ -4,7 +4,7 @@ import ItemListCategories from "./ItemListCategories";
 function ItemListContainerCategories() {
   return (
     <div>
-      <ItemListCategories/>
+      <ItemListCategories />
     </div>
   );
 }

@@ -51,3 +51,8 @@
     font-weight: bold;
     color:gray;
 }
+
+.noProducts{
+    font-size: 25px;
+    text-align: left;
+}

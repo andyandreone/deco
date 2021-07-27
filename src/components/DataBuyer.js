@@ -14,28 +14,26 @@ function DataBuyer() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [orderId, setOrderId] = useState(null);
- 
 
   const data = useDataContext();
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
-    if(emailConfirm == e.target.value){
-      setEmailValidate(true)
+    if (emailConfirm == e.target.value) {
+      setEmailValidate(true);
     }
-    if(emailConfirm != e.target.value){
-      setEmailValidate(false)
+    if (emailConfirm != e.target.value) {
+      setEmailValidate(false);
     }
   }
-  
 
   function handleChangeEmailConfirm(e) {
-    setEmailConfirm(e.target.value)
-    if(email == e.target.value){
-      setEmailValidate(true)
+    setEmailConfirm(e.target.value);
+    if (email == e.target.value) {
+      setEmailValidate(true);
     }
-    if(email != e.target.value){
-      setEmailValidate(false)
+    if (email != e.target.value) {
+      setEmailValidate(false);
     }
   }
 
@@ -74,7 +72,7 @@ function DataBuyer() {
         <Col>
           <Form.Label>Email</Form.Label>
           <Form.Control
-           
+            type="email"
             placeholder="name@example.com"
             onChange={handleChangeEmail}
           />
@@ -83,10 +81,15 @@ function DataBuyer() {
         <Col>
           <Form.Label>Confirmar Email</Form.Label>
           <Form.Control
-            
+            type="email"
             placeholder="name@example.com"
             onChange={handleChangeEmailConfirm}
           />
+          {emailValidate!=false || emailConfirm =="" ? (
+            ""
+          ) : (
+            <p className="errorEmail">*Los email no coinciden</p>
+          )}
         </Col>
 
         <Col>
