@@ -6,7 +6,7 @@ Proyecto ecommerce React JS
 
 <h3>Tools</h3>
 
- HTML CSS SASS JAVASCRIPT BOOTSTRAP.
+ HTML CSS SASS JAVASCRIPT BOOTSTRAP FIREBASE
 
 <img src="./src/img/gif.gif" alt="animacion">
 
