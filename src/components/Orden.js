@@ -33,6 +33,7 @@ function Orden(props) {
         <p>{detalleCompra.buyers.nombre}</p>
         <p>{detalleCompra.buyers.correo}</p>
         <p>{detalleCompra.buyers.telefono}</p>
+        <p>{detalleCompra.buyers.date}</p>
 
         {detalleCompra.items.map((producto, i) => {
           total += producto.precio * producto.cantidad;

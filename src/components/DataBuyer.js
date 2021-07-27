@@ -6,6 +6,7 @@ import { useDataContext } from "./CartContext";
 import { getFireStore } from "./firebase.js";
 import * as firebase from "firebase";
 import Orden from "./Orden";
+import moment from "moment"
 
 function DataBuyer() {
   const [email, setEmail] = useState("");
@@ -14,8 +15,8 @@ function DataBuyer() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [orderId, setOrderId] = useState(null);
-
   const data = useDataContext();
+  
 
   function handleChangeEmail(e) {
     setEmail(e.target.value);
@@ -48,11 +49,13 @@ function DataBuyer() {
   function addDataFirebase() {
     const db = getFireStore();
     const orders = db.collection("orders");
+    let date = moment().format('MMMM Do YYYY, h:mm:ss a')
     const newOrder = {
       buyers: {
         correo: email,
         nombre: name,
         telefono: phone,
+        date: date,
       },
       items: data,
     };

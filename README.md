@@ -16,3 +16,5 @@ Para correr el proyecto utiliza el script:
 
 Abrir http://localhost:3000 para verlo en el navegador. 
 
+Para visualizar las ordenes generadas ingresar en http://localhost:3000/orders
+

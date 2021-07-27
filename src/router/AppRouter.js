@@ -7,6 +7,7 @@ import Cart from "../components/Cart";
 import Orden from "../components/Orden";
 import ItemListContainerCategories from "../components/ItemListContainerCategories";
 import Footer from "../components/Footer";
+import OrderList from "../components/OrderList";
 
 function AppRouter() {
   return (
@@ -14,6 +15,7 @@ function AppRouter() {
       <NavBar />
       <Route exact path="/" component={ItemListContainer} />
       <Route path="/productos" component={ItemListContainer} />
+      <Route path="/orders" component={OrderList} />
       <Route
         path="/categoria/:categoryId"
         component={ItemListContainerCategories}
